@@ -1,0 +1,21 @@
+## nexus ## 
+url : http://192.168.0.200:8081/nexus
+계정 : admin/admin123
+
+## oracle ##
+url : 192.168.0.200:1521
+SID : xe
+계정 : pmgkdev/pmgk1234
+
+## SVN ##
+
+url(core) : svn://192.168.0.200/pmgkcore
+url(web) : svn://192.168.0.200/pmgkdev
+id : pmgk01~pmgk20
+pass : pmgk0000
+
+## pmgk WIKI ##
+
+url : http://192.168.0.200:8080/pmgwiki/
+admin id = pmgkwiki
+pass = pmgk1234
