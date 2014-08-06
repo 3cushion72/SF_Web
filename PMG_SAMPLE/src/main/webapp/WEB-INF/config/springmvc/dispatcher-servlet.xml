@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DispatcherServlet application context for Application's web tier. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+    <!-- The controllers are autodetected POJOs labeled with the @Controller annotation. -->
+    <context:component-scan base-package="kr.co.**.web" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    
+    <!-- 
+    	<mvc:annotation-driven>은 @MVC 스타일의 컨트롤러에서 자주 사용되는 validator, conversionService, messageConverter, MappedInterceptor를 자동으로 등록해주는 간편 빈 설정용 태그이다.
+     -->
+    <mvc:annotation-driven />
+
+
+<!-- HandlerMappings : 핸들러매핑[시작] -->
+
+	<!-- Interceptors -->
+	<!-- 
+	<bean id="smapleInterceptor" class="xxxxx"/>
+	 -->
+    
+    <bean id="annotationMapper" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" p:order="1">
+    	<property name="interceptors">
+    		<list>
+    			<!-- 인터셉터의 리스트를 설정 
+    			<ref bean="smapleInterceptor"/>
+    			 -->
+    		</list>
+    	</property>
+    </bean>
+
+<!-- HandlerMappings : 핸들러매핑[종료] -->
+
+<!-- HandlerAdapters : 핸들러어댑터[시작] -->
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactorBean"/>
+	<bean id="conversion-service" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+	<bean id="propertyEditorRegistrar" class="org.springframework.beans.PropertyEditorRegistry"/>
+	<util:list id="messageConverters">
+		<bean class="org.springframework.http.converters.ByteArrayHttpMessageConverter"/>
+		<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+			<property name="writeAcceptCharset" value="false"/>
+		</bean>
+		<bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+		<bean class="org.springframework.http.converter.support.AllEncompassingFormHttpMessageConverter"/>
+		<!-- rome 라이브러리 존재시 -->
+		<bean class="org.springframework.http.converter.feed.AtomFeedHttpMessageConverter"/>
+		<bean class="org.springframework.http.converter.feed.RssChannelHttpMessageConverter"/>
+	</util:list>	
+	
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <!--
+            - ArgumentResolver 처리 우선권
+            1. AbleCustomArgumentResolvers
+            2. ArgumentResolvers (Spring)
+            3. CustomArgumentResolvers
+         -->
+        <property name="customArgumentResolvers">
+            <list>
+                <bean class="kr.co.pmgk.sample.common.wrapper.resolver.CustomHandlerMethodArgumentResolver" />
+            </list>
+        </property>
+        <property name="webBindingInitializer">
+            <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="conversionService" ref="conversion-service" />
+                <property name="validator" ref="validator" />
+                <property name="propertyEditorRegistrar" ref="propertyEditorRegistrar" />
+            </bean>
+        </property>
+        <property name="messageconverters" ref="messageConverters"/>
+        <!-- true로 설정 시 Session 별로 직렬로 동작 -->
+        <property name="synchronizeOnSession" value="true" />
+    </bean>
+
+<!-- HandlerAdapters : 핸들러어댑터[종료] -->
+
+<!-- ExceptionHandlerResolver : 핸들러익셉션리졸버[시작] -->
+	<bean id="exceptionHandler" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="forward:/error/500.jsp"/>
+        <property name="exceptionAttribute" value="exception"/>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="kr.co.pmgk.core.common.exception.CoreBizException">forward:/common/error/common.hc</prop>
+                <prop key="kr.co.pmgk.core.common.exception.CoreException">forward:/common/error/common.hc</prop>
+                <prop key="kr.co.pmgk.core.common.exception.CoreServiceException">forward:/common/error/common.hc</prop>
+                <prop key="org.springframework.security.AccessDeniedException">forward:/common/error/common.hc</prop>
+                <!-- 
+                <prop key="com.hyundai.card.person.common.exception.SessionException">forward:/common/error/commonLogin.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.SessionExpiredException">forward:/common/error/commonLogin.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.StoreSessionException">forward:/csa/store/error/StoreErrorMove.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.LoginException">forward:/common/error/common.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.ValidationCheckException">forward:/common/error/common.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.WebCommonException">forward:/common/error/common.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.HostException">forward:/common/error/common.hc</prop>
+                <prop key="com.hyundai.card.person.common.exception.CertificationException">forward:/common/error/common.hc</prop>
+                 -->
+            </props>
+        </property>
+    </bean>
+
+<!-- HandlerAdapters : 핸들러익셉션리졸버[종료] -->
+
+<!-- ViewResolver : 뷰리졸버[시작] -->
+
+	<!-- 
+		* 미디터타입에 해당하는 리졸버를 결정
+		* 추가시 미디어 타입의 추가 및 리졸버를 추가할 것
+	 -->
+	<!-- 벨로시티 설정 -->
+	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/view/velocity/"/>
+	</bean> 
+	<!-- 프리마커 설정 -->
+	<bean id="freeMarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/view/freemaker/"/>
+	</bean> 
+	<!-- 타일즈 설정 -->
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="atom" value="application/atom+xml"/>
+				<entry key="html" value="text/html"/>
+				<entry key="json" value="application/json"/>
+				<entry key="xml" value="application/xml"/>
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+				<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+					<property name="suffix" value=".flt"/>
+				</bean>
+				<bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+					<property name="suffix" value=".vm"/>
+				</bean>
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+					<property name="prefix" value="/WEB-INF/view/jsp/"/>
+					<property name="suffix" value=".jsp"/>
+				</bean>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+				<bean class="org.springframework.web.servlet.view.xml.MarshallingView"/>
+			</list>
+		</property>
+	</bean>
+	 
+<!-- ViewResolver : 뷰리졸버[종료] -->	 
+	 
+</beans>

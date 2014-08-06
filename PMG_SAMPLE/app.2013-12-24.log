@@ -1,0 +1,54 @@
+[DEBUG][2013-12-24 10:21:05][net.sf.ehcache.config.ConfigurationFactory]:Configuring ehcache from InputStream
+[DEBUG][2013-12-24 10:21:05][net.sf.ehcache.config.BeanHandler]:Ignoring ehcache attribute xmlns:xsi
+[DEBUG][2013-12-24 10:21:05][net.sf.ehcache.config.BeanHandler]:Ignoring ehcache attribute xsi:noNamespaceSchemaLocation
+[DEBUG][2013-12-24 10:21:05][net.sf.ehcache.util.PropertyUtil]:propertiesString is null.
+[DEBUG][2013-12-24 10:21:05][net.sf.ehcache.config.ConfigurationHelper]:No CacheManagerEventListenerFactory class specified. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.Cache]:No BootstrapCacheLoaderFactory class specified. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.Cache]:CacheWriter factory not configured. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.config.ConfigurationHelper]:No CacheExceptionHandlerFactory class specified. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.Cache]:No BootstrapCacheLoaderFactory class specified. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.Cache]:CacheWriter factory not configured. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.config.ConfigurationHelper]:No CacheExceptionHandlerFactory class specified. Skipping...
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.store.MemoryStore]:Initialized net.sf.ehcache.store.NotifyingMemoryStore for CodeCache
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.Cache]:Initialised cache: CodeCache
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.config.ConfigurationHelper]:CacheDecoratorFactory not configured. Skipping for 'CodeCache'.
+[DEBUG][2013-12-24 10:21:06][net.sf.ehcache.config.ConfigurationHelper]:CacheDecoratorFactory not configured for defaultCache. Skipping for 'CodeCache'.
+[DEBUG][2013-12-24 10:21:06][org.apache.ibatis.logging.LogFactory]:Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[DEBUG][2013-12-24 10:21:06][org.mybatis.spring.SqlSessionFactoryBean]:Parsed configuration file: 'class path resource [sqlmap/mybatis/config/mybatis-config.xml]'
+[DEBUG][2013-12-24 10:21:07][org.mybatis.spring.SqlSessionFactoryBean]:Parsed mapper file: 'file [D:\PMG_DES\workspace\PMG_SAMPLE\target\classes\sqlmap\mybatis\oracle\MemberSample_sql.xml]'
+[DEBUG][2013-12-24 10:21:07][org.mybatis.spring.SqlSessionFactoryBean]:Parsed mapper file: 'file [D:\PMG_DES\workspace\PMG_SAMPLE\target\classes\sqlmap\mybatis\oracle\PmgkCoreSample_Mybatis_oracle_sql.xml]'
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.core.factory.DefaultContextInitTask]:taskList len=[2]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:core message - core_message=[[hello.jpg]해당파일이 존재하지 않습니다.]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:web message - messge=[[hello.jpg]해당파일 에러입니다.]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:core property - core_project_name=[PMGK_CORE]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:core property - core_isreal=[false]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:core property - core_sample_int=[5]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:core property - core_sample_long=[1234567890123456789]
+[DEBUG][2013-12-24 10:21:07][kr.co.pmgk.sample.TestSampleService]:web property - project_name=[PMG_SAMPLE]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[0][MemberVO [member_id=Hun2, member_name=양덕훈           , member_age=32, member_visitdate=2013-12-18 14:43:11, member_etc=과장]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[1][MemberVO [member_id=jingun              , member_name=이진건           , member_age=28, member_visitdate=2013-12-06 16:13:31, member_etc=신입사원]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[2][MemberVO [member_id=chulsu              , member_name=김철수           , member_age=33, member_visitdate=2013-12-06 16:14:24, member_etc=과장]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[3][MemberVO [member_id=Hun                 , member_name=훈이              , member_age=22, member_visitdate=2013-12-16 15:08:50, member_etc=주임]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[4][MemberVO [member_id=Hun2                , member_name=5678덕훈          , member_age=32, member_visitdate=2013-12-17 15:02:59, member_etc=대리]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.sample3.dao.mybatisImpl.MemberMybatisDAOImpl]:MemberMybatisDAOImpl.memberMybatisSelect
+[DEBUG][2013-12-24 10:21:08][org.mybatis.spring.SqlSessionUtils]:Creating a new SqlSession
+[DEBUG][2013-12-24 10:21:08][org.mybatis.spring.SqlSessionUtils]:SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d6e3d2] was not registered for synchronization because synchronization is not active
+[DEBUG][2013-12-24 10:21:08][org.mybatis.spring.transaction.SpringManagedTransaction]:JDBC Connection [jdbc:oracle:thin:@192.168.0.200:1521:XE, UserName=PMGKDEV, Oracle JDBC driver] will not be managed by Spring
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.sample3.dao.MemberMybatisDAO.MemberMybatisDAO_memberMybatisSelect]:ooo Using Connection [jdbc:oracle:thin:@192.168.0.200:1521:XE, UserName=PMGKDEV, Oracle JDBC driver]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.sample3.dao.MemberMybatisDAO.MemberMybatisDAO_memberMybatisSelect]:==>  Preparing: SELECT /* ProgramID=MemberMybatisDAO_memberMybatisSelect */ * FROM MEMBER 
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.sample3.dao.MemberMybatisDAO.MemberMybatisDAO_memberMybatisSelect]:==> Parameters: 
+[DEBUG][2013-12-24 10:21:08][org.mybatis.spring.SqlSessionUtils]:Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d6e3d2]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[0][MemberVO [member_id=Hun2, member_name=양덕훈           , member_age=32, member_visitdate=2013-12-18 14:43:11, member_etc=과장]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[1][MemberVO [member_id=jingun              , member_name=이진건           , member_age=28, member_visitdate=2013-12-06 16:13:31, member_etc=신입사원]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[2][MemberVO [member_id=chulsu              , member_name=김철수           , member_age=33, member_visitdate=2013-12-06 16:14:24, member_etc=과장]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[3][MemberVO [member_id=Hun                 , member_name=훈이              , member_age=22, member_visitdate=2013-12-16 15:08:50, member_etc=주임]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:memberList[4][MemberVO [member_id=Hun2                , member_name=5678덕훈          , member_age=32, member_visitdate=2013-12-17 15:02:59, member_etc=대리]]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.common.service.impl.CodeServiceImpl]:debug_message : CodeManagerService.codeList
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.sample3.dao.CodeDAO]:CodeDAO.codeSelect called...
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:ehcache code=[CODE_GROUP_1][코드그룹1][CODE_1_1][코드1_1]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:ehcache code=[CODE_GROUP_1][코드그룹1][CODE_1_2][코드1_2]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:ehcache code=[CODE_GROUP_2][코드그룹2][CODE_2_1][코드2_1]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:ehcache code=[CODE_GROUP_2][코드그룹2][CODE_2_2][코드2_2]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:ehcache code=[CODE_GROUP_2][코드그룹2][CODE_2_3][코드2_3]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:codeName[코드2_2]
+[DEBUG][2013-12-24 10:21:08][kr.co.pmgk.sample.TestSampleService]:codeName[코드2_1]

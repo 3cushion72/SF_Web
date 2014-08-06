@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- configuration file for LogBack (slf4J implementation)
+See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-through-the-java-loggers/ -->
+
+<!-- 
+	* 해당 설정 파일의 변경여부를 체크하고 변경된 설정파일을 적용 
+ -->
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <!-- To enable JMX Management -->
+    <jmxConfigurator/>
+
+	<property name="PARTITION" value="" />
+	<property name="LOG_HOME" value="D:\\logs\\pmgk.sample\\applogs" />
+	<property name="LOG_APP_FILE" value="app" />
+	
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5level][%d{yyyy-MM-dd HH:mm:ss}][%logger]:%msg%n</pattern>
+        </encoder>
+    </appender>
+    
+	<!--Daily rolling file appender -->
+	<appender name="daily-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}\${LOG_APP_FILE}.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}\${LOG_APP_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>100MB</maxFileSize>
+		  	</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+      		<pattern>[%-5level][%d{yyyy-MM-dd HH:mm:ss}][%logger]:%msg%n</pattern>
+    	</encoder>
+	</appender>
+	
+	<!--<logger name="org.hibernate" level="debug"/> -->
+    <!-- Uncomment and add your logger here: -->
+    <!-- 
+    <logger name="org.springframework.samples.service.service" level="debug"/>
+     -->
+          
+    <root level="debug">
+        <appender-ref ref="console"/>
+        <appender-ref ref="daily-file"/>
+    </root>
+</configuration>

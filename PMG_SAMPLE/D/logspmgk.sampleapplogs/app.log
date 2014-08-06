@@ -1,0 +1,12 @@
+1050 [main] DEBUG o.apache.ibatis.logging.LogFactory - Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+1223 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed configuration file: 'class path resource [sqlmap/mybatis/config/mybatis-config.xml]'
+1597 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [D:\PMG_DES\workspace\PMG_SAMPLE\target\classes\sqlmap\mybatis\oracle\MemberSample_sql.xml]'
+1597 [main] DEBUG o.m.spring.SqlSessionFactoryBean - Parsed mapper file: 'file [D:\PMG_DES\workspace\PMG_SAMPLE\target\classes\sqlmap\mybatis\oracle\PmgkCoreSample_Mybatis_oracle_sql.xml]'
+2096 [main] DEBUG org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+2096 [main] DEBUG org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e13e7b] was not registered for synchronization because synchronization is not active
+2113 [main] DEBUG o.m.s.t.SpringManagedTransaction - JDBC Connection [jdbc:oracle:thin:@192.168.0.200:1521:XE, UserName=PMGKDEV, Oracle JDBC driver] will not be managed by Spring
+2128 [main] DEBUG k.c.p.s.s.d.M.MemberMybatisDAO_memberMybatisSelect - ooo Using Connection [jdbc:oracle:thin:@192.168.0.200:1521:XE, UserName=PMGKDEV, Oracle JDBC driver]
+2128 [main] DEBUG k.c.p.s.s.d.M.MemberMybatisDAO_memberMybatisSelect - ==>  Preparing: SELECT /* ProgramID=MemberMybatisDAO_memberMybatisSelect */ * FROM MEMBER 
+2128 [main] DEBUG k.c.p.s.s.d.M.MemberMybatisDAO_memberMybatisSelect - ==> Parameters: 
+2128 [main] DEBUG org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e13e7b]
+2128 [main] DEBUG kr.co.pmgk.sample.TestSampleService - kdkdkdkkdkdkd

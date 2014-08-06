@@ -1,0 +1,279 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>kr.co.pmgk</groupId>
+	<artifactId>pmg_sample</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>pmg_sample</name>
+  
+    <properties>
+		<!-- Generic properties -->
+		<java.version>1.6</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Web -->
+		<jsp.version>2.2</jsp.version>
+		<jstl.version>1.2</jstl.version>
+		<!-- 
+		<servlet.version>2.5</servlet.version>
+		 -->
+		<servlet.version>3.0</servlet.version>
+		<!-- Spring -->
+		<spring-framework.version>3.1.4.RELEASE</spring-framework.version>
+		<!-- Hibernate / JPA -->
+		<hibernate.version>4.2.1.Final</hibernate.version>
+		<!-- Logging -->
+		<logback.version>1.0.13</logback.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<!-- Test -->
+		<junit.version>4.11</junit.version>
+	</properties>
+	<repositories>
+		<repository> 
+	        <id>central</id>
+	        <url>http://192.168.0.200:8081/nexus/content/groups/public/</url>
+	        <releases><enabled>true</enabled></releases>
+	        <snapshots><enabled>true</enabled></snapshots>
+	    </repository>
+		<repository>
+			<id>mvn2</id>
+			<url>http://repo1.maven.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>egovframe</id>
+			<url>http://www.egovframe.go.kr/maven/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<dependencies>
+	
+		<!-- Spring MVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<!-- Other Web dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	
+		<!-- Spring and Transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+		<!-- Logging with SLF4J & LogBack -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		
+		<!-- Test Artifacts -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring-framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Oracle -->
+		<dependency> 
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Log4Sql -->
+		<dependency>
+		  <groupId>log4sql</groupId>
+		  <artifactId>log4sql</artifactId>
+		  <version>7.0.8</version>
+		</dependency>
+				
+		<!-- egovframework jars -->
+		<dependency>
+		    <groupId>egovframework.rte</groupId>
+		    <artifactId>egovframework.rte.fdl.cmmn</artifactId>
+		    <version>2.6.0</version>
+        </dependency>
+		
+        <dependency>
+		    <groupId>egovframework.rte</groupId>
+		    <artifactId>egovframework.rte.ptl.mvc</artifactId>
+		    <version>2.6.0</version>
+        </dependency>
+				
+        <dependency>
+		    <groupId>egovframework.rte</groupId>
+		    <artifactId>egovframework.rte.psl.dataaccess</artifactId>
+		    <version>2.6.0</version>
+        </dependency>
+        
+        <dependency>
+			<groupId>egovframework.rte</groupId>
+			<artifactId>egovframework.rte.fdl.idgnr</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+        
+       	<dependency>
+			<groupId>egovframework.rte</groupId>
+			<artifactId>egovframework.rte.fdl.property</artifactId>  
+			<version>2.6.0</version>
+		</dependency>
+		
+		<!-- 외부 필요한 JAR 의존관계 설정 -->
+		<!-- PMG_CORE PROJECT -->
+		<dependency>
+			<groupId>kr.co.pmgk</groupId>
+			<artifactId>pmg_core</artifactId>
+			<version>0.9.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- Apache Commons configuration -->  
+		<dependency>  
+		 	<groupId>commons-configuration</groupId>  
+		 	<artifactId>commons-configuration</artifactId>  
+		 	<version>1.9</version>  
+		</dependency>
+		
+		<!-- Apache Commons configuration -->  
+		<dependency>  
+		 	<groupId>commons-dbcp</groupId>  
+		 	<artifactId>commons-dbcp</artifactId>  
+		 	<version>1.4</version>  
+		</dependency>
+		
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.1.1</version>
+		</dependency>  
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.1</version>
+		</dependency>  
+		
+		<!-- ibatis -->
+		<dependency>
+            <groupId>org.apache.ibatis</groupId>
+            <artifactId>ibatis-sqlmap</artifactId>
+            <version>2.3.4.726</version>
+        </dependency>
+        
+        <!-- transaction 관련 -->
+        <dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>2.2</version>
+		    <type>jar</type>
+		    <scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+	      <groupId>org.springframework</groupId>
+	      <artifactId>spring-jdbc</artifactId>
+	      <version>3.2.2.RELEASE</version>
+	    </dependency>
+	    
+	    <!-- mysql driver-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>  
+        
+        <dependency>
+            <groupId>net.sf</groupId>
+            <artifactId>log4jdbc3</artifactId>
+            <version>1.1</version>
+        </dependency>
+        
+        <!-- jasypt enc/dec -->
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt-spring3</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+		<!-- spring jarkarta common -->
+		<dependency>
+			<groupId>org.springmodules</groupId>
+			<artifactId>spring-modules-jakarta-commons</artifactId>
+			<version>0.5</version>
+	    </dependency>
+	    
+	    <!-- ehcache -->
+	    <dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.6</version>
+		</dependency>
+
+	    <!-- cglib -->
+	    <dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+        
+	</dependencies>	
+</project>

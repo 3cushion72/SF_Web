@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding= "UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "kr.co.pmgk.sample.sample3.dao.MemberMybatisDAO" >
+
+	<select id="MemberMybatisDAO_memberMybatisSelect" parameterType="kr.co.pmgk.sample.sample3.vo.MemberVO" resultType="kr.co.pmgk.sample.sample3.vo.MemberVO">
+	            SELECT  /* ProgramID=MemberMybatisDAO_memberMybatisSelect */
+	            		* 
+	              FROM 	MEMBER
+	</select>
+
+	<insert id="MemberMybatisDAO_memberMybatisInsert" parameterType="kr.co.pmgk.sample.sample3.vo.MemberVO">
+	            INSERT INTO MEMBER	/* ProgramID=MemberMybatisDAO_memberMybatisInsert */
+    			(
+    				 MEMBER_ID
+    				,MEMBER_NAME
+    				,MEMBER_AGE
+    				,MEMBER_VISITDATE
+    				,MEMBER_ETC
+   				)
+  				VALUES
+  				(
+  					 #member_id#
+   					,#member_name#
+   					,#member_age#
+   					,SYSDATE
+   					,#member_etc#
+   				)
+	</insert>
+
+	<update id="MemberMybatisDAO_memberMybatisUpdate" parameterType="kr.co.pmgk.sample.sample3.vo.MemberVO">
+	            UPDATE 	MEMBER	/* ProgramID=MemberMybatisDAO_memberMybatisUpdate */
+	               SET
+			             MEMBER_NAME = #member_name#
+			            ,MEMBER_AGE = #member_age#
+			            ,MEMBER_VISITDATE = SYSDATE
+			            ,MEMBER_ETC = #member_etc#
+	             WHERE 	MEMBER_ID = #member_id#
+	</update>
+
+	<delete id="MemberMybatisDAO_memberMybatisDelete" parameterType="kr.co.pmgk.sample.sample3.vo.MemberVO">
+	            DELETE  /* ProgramID=MemberMybatisDAO_memberMybatisDelete */
+	              FROM 	MEMBER
+	             WHERE 	MEMBER_ID = #member_id#
+	</delete>
+
+</mapper>

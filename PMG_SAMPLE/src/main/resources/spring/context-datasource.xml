@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">	
+
+    <!-- 
+       - 만약 DataSource를 추가로 생성하여 사용할 경우에는 반드시 AbstractDAO를 상속받는   
+       - 하위 Class를 추가하여 사용하여야 한다.
+       - (단, 하나 이상의 DataSource를 사용할 경우에만 해당함.)
+       -
+       - ex> 만약 mysql를 새로 추가할경우 AbstractDAO를 상속받는 MysqlAbstractDAO를 생성하여야 한다.
+     -->
+
+    <!-- web.xml에서 spring.profiles.active로 지정한 변수값에 따라 분기 -->
+    <beans profile="local">
+		<bean id="dataSource-oracle" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		    <property name="driverClassName" value="${jdbcs.oracle.class}"/>
+		    <property name="url" value="${jdbcs.oracle.url}"/>
+		    <property name="username" value="${jdbcs.oracle.user}"/>
+		    <property name="password" value="${jdbcs.oracle.pwd}"/>
+		</bean>
+		<bean id="dataSource-mysql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	        <property name="driverClassName" value="${jdbcs.mysql.class}"/>
+	        <property name="url" value="${jdbcs.mysql.url}"/>
+	        <property name="username" value="${jdbcs.mysql.user}"/>
+	        <property name="password" value="${jdbcs.mysql.pwd}"/>
+	    </bean>
+    </beans>
+
+	<beans profile="dev">
+		<jee:jndi-lookup id="dataSource" jndi-name="jdbc/thdcard5" resource-ref="true"/>
+	</beans>
+		
+	<beans profile="prd">
+		<jee:jndi-lookup id="dataSource" jndi-name="jdbc/thdcard5" resource-ref="true"/>
+	</beans>
+	
+</beans>

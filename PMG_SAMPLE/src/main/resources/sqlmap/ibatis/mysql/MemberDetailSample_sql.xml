@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="MemberDetailDAO">
+    <typeAlias  alias="memberDetailVO" type="kr.co.pmgk.sample.sample3.vo.MemberDetailVO"/>
+
+	<select id="MemberDetailDAO.memberDetailSelect" parameterClass="memberDetailVO" resultClass="memberDetailVO">
+	        <![CDATA[
+	            SELECT * FROM MEMBER_DETAIL
+	        ]]>
+	</select>
+
+	<insert id="MemberDetailDAO.memberDetailInsert" parameterClass="memberDetailVO">
+	        <![CDATA[
+	            INSERT INTO MEMBER_DETAIL
+	            				(
+	            				MEMBER_ID
+	            				,MEMBER_EMAIL
+	            				,MEMBER_PHONE
+            					)
+           					VALUES(
+           					#member_id#
+            				,#member_email#
+            				,#member_phone#
+            				)
+	        ]]>
+	</insert>
+
+	<update id="MemberDetailDAO.memberDetailUpdate" parameterClass="memberDetailVO">
+	        <![CDATA[
+	            UPDATE MEMBER_DETAIL SET
+	            MEMBER_EMAIL = #member_email#
+	            ,MEMBER_PHONE = #member_phone#
+	            WHERE MEMBER_ID = #member_id#
+	        ]]>
+	</update>
+
+	<delete id="MemberDetailDAO.memberDetailDelete" parameterClass="memberDetailVO">
+	        <![CDATA[
+	            DELETE FROM MEMBER_DETAIL
+	            WHERE MEMBER_ID = #member_id#
+	        ]]>
+	</delete>
+
+</sqlMap>
+

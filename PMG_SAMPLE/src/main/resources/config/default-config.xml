@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+    <project>
+        <context>pilot</context>
+        <host_ip>localhost</host_ip>
+        <port>8080</port>
+    </project>
+
+    <!-- file 설정 -->
+    <!-- 
+    <file>
+        <base_path>C:/DES/workspace/projects</base_path>
+        <upload_path>${file.base_path}/${project.context}/files</upload_path>
+        <clear_path>${file.base_path}/${project.context}/files/temp</clear_path>
+        <clear_move_path>${file.base_path}/${project.context}/files/temp2</clear_move_path>
+    </file>
+    <commons>
+    </commons>
+	 -->
+	 
+    <!-- DB 설정 -->
+    <jdbcs>
+        <oracle>
+            <!-- log4sql class -->
+            <class>core.log.jdbc.driver.OracleDriver</class>
+            <url>jdbc:oracle:thin:@192.168.0.200:1521:XE</url>
+            <user>pmgkdev</user>
+            <pwd>pmgk1234</pwd>
+        </oracle>
+        <mysql>
+            <class>net.sf.log4jdbc.DriverSpy</class>
+            <url>jdbc:mysql://localhost:3306/test</url>
+            <user>root</user>
+            <pwd>pmgk1234</pwd>
+        </mysql>
+    </jdbcs>
+
+</configs>
